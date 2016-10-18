@@ -7,10 +7,10 @@ import android.support.v4.view.ViewPager;
  * Date: 18.09.14 | Time: 12:08
  */
 public class CircularViewPagerHandler implements ViewPager.OnPageChangeListener {
-    public static final int                 SET_ITEM_DELAY = 300;
+    private static final int SET_ITEM_DELAY = 300;
 
-    private ViewPager                       mViewPager;
-    private ViewPager.OnPageChangeListener  mListener;
+    private ViewPager mViewPager;
+    private ViewPager.OnPageChangeListener mListener;
 
     public CircularViewPagerHandler(final ViewPager viewPager) {
         mViewPager = viewPager;
@@ -38,15 +38,15 @@ public class CircularViewPagerHandler implements ViewPager.OnPageChangeListener 
 
     private void handleSetCurrentItem(final int position) {
         final int lastPosition = mViewPager.getAdapter().getCount() - 1;
-        if(position == 0) {
+        if (position == 0) {
             mViewPager.setCurrentItem(lastPosition - 1, false);
-        } else if(position == lastPosition) {
+        } else if (position == lastPosition) {
             mViewPager.setCurrentItem(1, false);
         }
     }
 
     private void invokeOnPageSelected(final int position) {
-        if(mListener != null) {
+        if (mListener != null) {
             mListener.onPageSelected(position - 1);
         }
     }
@@ -57,7 +57,7 @@ public class CircularViewPagerHandler implements ViewPager.OnPageChangeListener 
     }
 
     private void invokeOnPageScrollStateChanged(final int state) {
-        if(mListener != null) {
+        if (mListener != null) {
             mListener.onPageScrollStateChanged(state);
         }
     }
@@ -68,7 +68,7 @@ public class CircularViewPagerHandler implements ViewPager.OnPageChangeListener 
     }
 
     private void invokeOnPageScrolled(final int position, final float positionOffset, final int positionOffsetPixels) {
-        if(mListener != null) {
+        if (mListener != null) {
             mListener.onPageScrolled(position - 1, positionOffset, positionOffsetPixels);
         }
     }

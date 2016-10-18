@@ -10,8 +10,8 @@ import java.util.List;
  * Date: 18.09.14 | Time: 11:02
  */
 public class Meme {
-    public String   mTitle;
-    public int      mImageResourceId;
+    public String mTitle;
+    public int mImageResourceId;
 
     public static List<Meme> createSampleMemes() {
         final List<Meme> memes = new ArrayList<Meme>();

@@ -1,14 +1,15 @@
 package com.tobishiba.circularviewpager.fragments;
 
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.tobishiba.circularviewpager.R;
 import com.tobishiba.circularviewpager.models.Meme;
 
@@ -17,10 +18,10 @@ import com.tobishiba.circularviewpager.models.Meme;
  * Date: 18.09.14 | Time: 11:02
  */
 public class MemeViewPagerItemFragment extends Fragment {
-    private static final String BUNDLE_KEY_TITLE                = "bundle_key_title";
-    private static final String BUNDLE_KEY_IMAGE_RESOURCE_ID    = "bundle_key_image_resource_id";
-    private String              mTitle;
-    private int                 mImageResourceId;
+    private static final String BUNDLE_KEY_TITLE = "bundle_key_title";
+    private static final String BUNDLE_KEY_IMAGE_RESOURCE_ID = "bundle_key_image_resource_id";
+    private String mTitle;
+    private int mImageResourceId;
 
     public static MemeViewPagerItemFragment instantiateWithArgs(final Context context, final Meme meme) {
         final MemeViewPagerItemFragment fragment = (MemeViewPagerItemFragment) instantiate(context, MemeViewPagerItemFragment.class.getName());
@@ -39,7 +40,7 @@ public class MemeViewPagerItemFragment extends Fragment {
 
     private void initArguments() {
         final Bundle arguments = getArguments();
-        if(arguments != null) {
+        if (arguments != null) {
             mTitle = arguments.getString(BUNDLE_KEY_TITLE);
             mImageResourceId = arguments.getInt(BUNDLE_KEY_IMAGE_RESOURCE_ID);
         }

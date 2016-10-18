@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
 import com.tobishiba.circularviewpager.R;
 import com.tobishiba.circularviewpager.adapters.MemeCircularViewPagerAdapter;
 import com.tobishiba.circularviewpager.inappbilling.GoogleIabHelper;
@@ -34,14 +35,17 @@ public class MainActivity extends FragmentActivity {
 
     private void initActionBar() {
         final ActionBar actionBar = getActionBar();
-        if(actionBar != null) {
+        if (actionBar != null) {
             actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.blue)));
         }
     }
 
     private void initViews() {
         final ViewPager viewPager = (ViewPager) findViewById(R.id.activity_main_view_pager);
-        viewPager.setAdapter(new MemeCircularViewPagerAdapter(this, getFragmentManager(), Meme.createSampleMemes()));
+
+        MemeCircularViewPagerAdapter adapter = new MemeCircularViewPagerAdapter(this, getSupportFragmentManager(), Meme.createSampleMemes());
+        viewPager.setAdapter(adapter);
+
         final CircularViewPagerHandler circularViewPagerHandler = new CircularViewPagerHandler(viewPager);
         circularViewPagerHandler.setOnPageChangeListener(createOnPageChangeListener());
         viewPager.addOnPageChangeListener(circularViewPagerHandler);
@@ -54,10 +58,14 @@ public class MainActivity extends FragmentActivity {
             public void onPageScrolled(final int position, final float positionOffset, final int positionOffsetPixels) {
                 currentPageText.setText(getString(R.string.current_page, position));
             }
+
             @Override
-            public void onPageSelected(final int position) {}
+            public void onPageSelected(final int position) {
+            }
+
             @Override
-            public void onPageScrollStateChanged(final int state) {}
+            public void onPageScrollStateChanged(final int state) {
+            }
         };
     }
 

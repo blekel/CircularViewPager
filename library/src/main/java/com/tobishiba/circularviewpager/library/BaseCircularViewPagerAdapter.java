@@ -1,8 +1,8 @@
 package com.tobishiba.circularviewpager.library;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.support.v13.app.FragmentStatePagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
@@ -23,9 +23,9 @@ public abstract class BaseCircularViewPagerAdapter<Item> extends FragmentStatePa
     @Override
     public Fragment getItem(final int position) {
         final int itemsSize = mItems.size();
-        if(position == 0) {
+        if (position == 0) {
             return getFragmentForItem(mItems.get(itemsSize - 1));
-        } else if(position == itemsSize + 1) {
+        } else if (position == itemsSize + 1) {
             return getFragmentForItem(mItems.get(0));
         } else {
             return getFragmentForItem(mItems.get(position - 1));
